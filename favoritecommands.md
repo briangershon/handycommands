@@ -1,6 +1,6 @@
-# Favorite Commands
+# Handy Commands
 
-So I don't have to remember the commands I use less often, but are great when I need them.
+So I don't have to remember the commands I use less often.
 
 ## Shell
 
