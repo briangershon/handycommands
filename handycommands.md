@@ -23,8 +23,15 @@ Create local Git Repo from SVN Branch
 	# Create a local git repo, and pull in history starting from a specific svn revision for 'branch-i-want', which is 16759 in this case
 	git svn clone --log-window=10000 -r16759 https://MYREPO/branches/branch-i-want branch-i-want
 
+Pulling from SVN and Pushing back to SVN
+
 	# Pull down revisions
 	git svn rebase
+
+	# Push git changes back to SVN
+	git svn dcommit
+
+Working with SVN and multiple local Git branches
 
 	# If creating/using local git branches, use "git rebase" and never "git merge"/"git pull"
 	# 	since SVN doesn't understand merging, just linear commits.
@@ -35,8 +42,6 @@ Create local Git Repo from SVN Branch
 	git rebase my-new-local-branch 	# to add commits from my-new-local-branch back to master
 	git svn rebase		# to pull down any new changes in SVN
 
-	# Push git changes back to SVN
-	git svn dcommit
 
 ## Github API
 
