@@ -4,12 +4,15 @@ Recursively remove directories from current directory
 
 	find . -name .svn -exec rm -rf \{\} \;
 
-## Git
+## General Git
 
-	# list branches in date order
+List branches in date order
+
 	git for-each-ref --sort=-committerdate refs/heads/
 
-## Git with SVN
+## Git and SVN
+
+Create local Git Repo from SVN Branch
 
 	# Which SVN branch do you want to create a repo for? (versus pulling down all svn branches and all history)
 	svn ls https://MYREPO/branches
@@ -20,7 +23,7 @@ Recursively remove directories from current directory
 	# Create a local git repo, and pull in history starting from a specific svn revision for 'branch-i-want', which is 16759 in this case
 	git svn clone --log-window=10000 -r16759 https://MYREPO/branches/branch-i-want branch-i-want
 
-## Github
+## Github API
 
 Creating an OAuth Token for Updating GISTs
 
