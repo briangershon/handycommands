@@ -1,5 +1,7 @@
 # Favorite Commands
 
+So I don't have to remember the commands I use less often, but are great when I need them.
+
 ## Shell
 
 Recursively remove directories from current directory
