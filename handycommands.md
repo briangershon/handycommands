@@ -1,7 +1,3 @@
-# Handy Commands
-
-So I don't have to remember the commands I use less often.
-
 ## Shell
 
 Recursively remove directories from current directory
