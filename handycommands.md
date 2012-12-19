@@ -33,15 +33,16 @@ Pulling from SVN and Pushing back to SVN
 
 Working with SVN and multiple local Git branches
 
-	# If creating/using local git branches, use "git rebase" and never "git merge"/"git pull"
-	# 	since SVN doesn't understand merging, just linear commits.
+If creating/using local git branches, use "git rebase" and never "git fetch/merge" nor "git pull"
+since SVN doesn't understand merging, just linear commits.
+
 	git checkout master		# assume we're on master
 	git checkout -b my-new-local-branch		# create a new branch based on master
 	... make changes, make some commits...
 	git checkout master		# change back to master in prep for commiting back to SVN
 	git rebase my-new-local-branch 	# to add commits from my-new-local-branch back to master
 	git svn rebase		# to pull down any new changes in SVN
-
+	git svn dcommit		# commit git changes back to SVN
 
 ## Github API
 
