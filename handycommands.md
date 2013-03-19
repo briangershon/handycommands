@@ -4,6 +4,26 @@ Recursively remove directories from current directory
 
 	find . -name .svn -exec rm -rf \{\} \;
 
+## Mirroring a website
+
+	brew install wget
+
+	# mirror a site locally
+	wget --mirror --page-requisites --wait 2 --adjust-extension --convert-links https://www.example.com
+
+	# just get items under a specific section using --no-parent
+	wget --mirror --page-requisites --no-parent --wait 2 --adjust-extension --convert-links https://www.example.com/section
+
+## Convert a mirrored website to PDF
+
+	brew install htmldoc
+
+	# create pdf in filename alphabetical order (ok since hyperlinks work in PDF)
+	htmldoc --webpage -f example.pdf example_path/*.html
+
+	# move a page to the first instead of default alphabetical order
+	htmldoc --webpage -f example.pdf example_path/first-page.html example_path/*.html
+
 ## General Git
 
 List branches in date order
