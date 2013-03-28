@@ -90,3 +90,18 @@ Creating an OAuth Token for Updating GISTs
 
     curl -v -u USERNAME_HERE https://api.github.com/authorizations \
     	--data '{"scopes":["gist"], "note":"DESCRIPTION_HERE"}'
+
+## sed
+
+Add a newline in the replacement text on OSX (and Linux)
+
+	# Note: I'm using the pipe deliminiter in this example, not required.
+	# Important part is defining nl, and then using it via: \\$nl\
+
+	nl=$'\n'; sed "s|oneline|oneline\\$nl\twolines|" file.txt
+
+Make changes in-place
+
+	# use -i ''
+	sed -i '' "s|oneline|oneline2|" file.txt
+
