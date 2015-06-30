@@ -4,6 +4,11 @@ Recursively remove directories from current directory
 
 	find . -name .svn -exec rm -rf \{\} \;
 
+Mass rename file extensions (on OSX)
+
+    brew install rename
+    find . -name "*.js" -exec rename 's/.js$/.ts/' \{\} \;
+
 ## Mirroring a website
 
 	brew install wget
