@@ -1,18 +1,4 @@
-## Handy Shell Commands
-
-Recursively remove directories from current directory
-
-    # remove ".svn" sub-folders at all levels
-    find . -name .svn -exec rm -rf \{\} \;
-
-Mass rename file extensions (on OSX)
-
-    brew install rename
-    find . -name "*.js" -exec rename 's/.js$/.ts/' \{\} \;
-
-Find largest sub-directories (on OSX)
-
-    du -k -d1 | sort -nr
+# Handy Shell Commands
 
 ## Backup
 
@@ -43,6 +29,22 @@ Find largest sub-directories (on OSX)
 
     # remove from S3
     aws s3 rm "s3://vacationphotos-bucket/italyphotos/123.jpg"
+
+## Directory Clean up
+
+Recursively remove directories from current directory
+
+    # remove ".svn" sub-folders at all levels
+    find . -name .svn -exec rm -rf \{\} \;
+
+Mass rename file extensions (on OSX)
+
+    brew install rename
+    find . -name "*.js" -exec rename 's/.js$/.ts/' \{\} \;
+
+Find largest sub-directories (on OSX)
+
+    du -k -d1 | sort -nr
 
 ## Mirroring a website
 
@@ -135,7 +137,7 @@ Creating an OAuth Token for Updating GISTs
 
 Add a newline in the replacement text on OSX (and Linux)
 
-  # Note: I'm using the pipe deliminiter in this example, not required.
+  # Note: I'm using the pipe delimiter in this example, not required.
   # Important part is defining nl, and then using it via: \\$nl\
 
   nl=$'\n'; sed "s|oneline|oneline\\$nl\twolines|" file.txt
