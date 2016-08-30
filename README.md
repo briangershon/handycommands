@@ -12,16 +12,16 @@
 
     nice hdiutil create -srcfolder "VacationPhotos" -volname "vacationphotos" -fs HFS+ -fsargs "-c c=64,a=16,e=16" -format UDBZ -puppetstrings "vacationphotos.dmg"
 
-### Copying to S3
+### S3: Copying files to S3
 
     aws s3 cp vacationphotos.dmg s3://vacationphotos-bucket/vacationphotos.dmg
 
     # using REDUCED_REDUNDANCY
     aws s3 cp vacationphotos.dmg s3://vacationphotos-bucket/vacationphotos.dmg --storage-class REDUCED_REDUNDANCY
 
-### Listing, Downloading and Removing files from S3
+### S3: Listing, Downloading and Removing
 
-    # copy to S3
+    # list files in S3 recursively
     aws s3 ls --recursive s3://vacationphotos-bucket/italyphotos
 
     # S3 to local machine
