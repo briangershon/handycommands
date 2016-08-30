@@ -1,8 +1,9 @@
-## Shell
+## Handy Shell Commands
 
 Recursively remove directories from current directory
 
-  find . -name .svn -exec rm -rf \{\} \;
+    # remove ".svn" sub-folders at all levels
+    find . -name .svn -exec rm -rf \{\} \;
 
 Mass rename file extensions (on OSX)
 
@@ -12,6 +13,36 @@ Mass rename file extensions (on OSX)
 Find largest sub-directories (on OSX)
 
     du -k -d1 | sort -nr
+
+## Backup
+
+### Encrypted DMG example
+
+    # setup `ARCHIVE_PW` environment variable for encrypted DMGs
+
+    printf $ARCHIVE_PW | nice hdiutil create -stdinpass -srcfolder "VacationPhotos" -volname "movies" -fs HFS+ -fsargs "-c c=64,a=16,e=16" -format UDBZ -puppetstrings -encryption AES-256 "vacation.dmg"
+
+### Unencrypted DMG example
+
+    nice hdiutil create -srcfolder "VacationPhotos" -volname "vacationphotos" -fs HFS+ -fsargs "-c c=64,a=16,e=16" -format UDBZ -puppetstrings "vacationphotos.dmg"
+
+### Copying to S3
+
+    aws s3 cp vacationphotos.dmg s3://vacationphotos-bucket/vacationphotos.dmg
+
+    # using REDUCED_REDUNDANCY
+    aws s3 cp vacationphotos.dmg s3://vacationphotos-bucket/vacationphotos.dmg --storage-class REDUCED_REDUNDANCY
+
+### Listing, Downloading and Removing files from S3
+
+    # copy to S3
+    aws s3 ls --recursive s3://vacationphotos-bucket/italyphotos
+
+    # S3 to local machine
+    aws s3 cp "s3://vacationphotos-bucket/italyphotos/123.jpg" .
+
+    # remove from S3
+    aws s3 rm "s3://vacationphotos-bucket/italyphotos/123.jpg"
 
 ## Mirroring a website
 
