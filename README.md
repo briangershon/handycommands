@@ -2,6 +2,14 @@
 
 ## Docker
 
+### Stop all running containers
+
+    docker stop $(docker ps -a -q)
+    
+### Remove all containers
+
+    docker rm $(docker ps -a -q)
+
 ### Remove all untagged images
 
     docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
