@@ -62,6 +62,11 @@ Find largest sub-directories (on OSX)
 
     du -k -d1 | sort -nr
 
+## Copy to remote server via `scp`
+
+    scp -vp root@server.local:/volume1/archives/files.tgz ~/Desktop/
+    scp -vp ~/Desktop/files.tgz root@server.local:/volume1/archives/
+
 ## Mirroring a website
 
     brew install wget
