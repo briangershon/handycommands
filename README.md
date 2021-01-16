@@ -1,5 +1,20 @@
 # Handy Shell Commands
 
+## MacOS
+
+Install Xcode Command Line Tools with installing all of Xcode.
+
+If:
+
+* you're missing the Xcode command line tools, or
+* see an error such as `xcode-select: error: command line tools are already installed, use "Software Update" to install updates`, or
+* see an error during `npm install` such as `gyp: No Xcode or CLT version detected!`
+
+Run:
+
+    sudo rm -rf /Library/Developer/CommandLineTools
+    xcode-select --install
+
 ## Docker
 
 ### Stop all running containers
