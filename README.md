@@ -6,9 +6,9 @@ Install Xcode Command Line Tools with installing all of Xcode.
 
 If:
 
-* you're missing the Xcode command line tools, or
-* see an error such as `xcode-select: error: command line tools are already installed, use "Software Update" to install updates`, or
-* see an error during `npm install` such as `gyp: No Xcode or CLT version detected!`
+- you're missing the Xcode command line tools, or
+- see an error such as `xcode-select: error: command line tools are already installed, use "Software Update" to install updates`, or
+- see an error during `npm install` such as `gyp: No Xcode or CLT version detected!`
 
 Run:
 
@@ -30,6 +30,16 @@ Run:
     docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 
 ## Backup
+
+### Partition an External USB Drive with Apple APFS Filesystem
+
+    # find out what disk number you want to partition
+    diskutil list
+
+    # partition "disk2" into 4 sections, all formatted with APFS
+    diskutil partitionDisk disk2 4 GPT APFS Data1 5% APFS Data2 20% APFS Data3 30% APFS Other R
+
+    # use timemachine to backup to a partition
 
 ### Encrypted DMG example
 
@@ -106,7 +116,7 @@ Find largest sub-directories (on OSX)
 
 List branches in date order
 
-  git for-each-ref --sort=-committerdate refs/heads/
+git for-each-ref --sort=-committerdate refs/heads/
 
 Moving patches between separate Git repos
 
